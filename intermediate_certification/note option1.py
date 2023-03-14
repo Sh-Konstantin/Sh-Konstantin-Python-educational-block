@@ -10,12 +10,13 @@ file_name = NONE
 def new_file():
     global file_name
     file_name = 'без названия'
+  
     text.delete('1.0', END)
 
 
 def save_as():
-    out = asksaveasfile(mode='w', defaultextension='.csv')
-    data = text.get('1.0', END)
+    out = asksaveasfile(mode='w', defaultextension='.csv' )
+    data = text.get('1.0', END )
     try:
         out.write(data.rstrip())
     except Exception:
@@ -27,6 +28,7 @@ def open_file():
     inp = askopenfile(mode='r')
     if inp is None:
         return 
+    
     file_name = inp.name
     data = inp.read()
     text.delete('1.0', END)
@@ -57,3 +59,4 @@ menu_bar.add_cascade(label="Файл", menu=file_menu)
 
 root.config(menu=menu_bar)
 root.mainloop()
+
